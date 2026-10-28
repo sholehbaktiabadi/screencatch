@@ -8,7 +8,6 @@
 Press a shortcut, drag over what you need, add arrows, boxes, circles and text, then copy or save.
 No more saving a screenshot just to open it again in another editor.
 
-[![CI](https://github.com/sholehbaktiabadi/screencatch/actions/workflows/ci.yml/badge.svg)](https://github.com/sholehbaktiabadi/screencatch/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/sholehbaktiabadi/screencatch)](https://github.com/sholehbaktiabadi/screencatch/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 

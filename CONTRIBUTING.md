@@ -36,8 +36,8 @@ make lint   # ruff check (install ruff with pipx or uv)
 make deb    # builds dist/screencatch_<version>_all.deb
 ```
 
-CI runs the same commands on Ubuntu 24.04, the oldest supported platform (GTK 4.14, libadwaita 1.5).
-Please stay within those APIs.
+Ubuntu 24.04 is the oldest supported platform (GTK 4.14, libadwaita 1.5), so please stay within
+those APIs.
 
 ## Code layout
 
@@ -60,5 +60,8 @@ Pango, so they can be unit tested without a display.
 1. Bump the version in `meson.build`, `src/screencatch/__init__.py`, `debian/changelog`
    (`dch -v X.Y.Z`), the `<releases>` list in the metainfo file, `data/screencatch.1` and `CHANGELOG.md`.
    `meson test` fails if they disagree.
-2. Commit, then tag and push: `git tag vX.Y.Z && git push origin vX.Y.Z`.
-3. The release workflow builds the `.deb` and publishes a GitHub release with it.
+2. Build and check the package: `make test && make deb && lintian dist/*.deb`.
+3. Commit, then tag and push: `git tag vX.Y.Z && git push origin vX.Y.Z`.
+4. Publish the release with the `.deb` attached, either on the GitHub Releases page or with
+   `gh release create vX.Y.Z dist/screencatch_X.Y.Z_all.deb --title "ScreenCatch X.Y.Z"`
+   (use the matching `CHANGELOG.md` section as the notes).

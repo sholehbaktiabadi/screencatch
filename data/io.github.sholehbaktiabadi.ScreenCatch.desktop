@@ -1,0 +1,26 @@
+[Desktop Entry]
+Type=Application
+Name=ScreenCatch
+GenericName=Screenshot Tool
+Comment=Take a screenshot and annotate it instantly
+Exec=screencatch --home %F
+Icon=io.github.sholehbaktiabadi.ScreenCatch
+Terminal=false
+Categories=Graphics;2DGraphics;RasterGraphics;
+Keywords=screenshot;capture;screen;annotate;arrow;markup;snip;print;
+MimeType=image/png;image/jpeg;
+StartupNotify=true
+StartupWMClass=io.github.sholehbaktiabadi.ScreenCatch
+Actions=capture-region;capture-full;capture-delayed;
+
+[Desktop Action capture-region]
+Name=Capture Region
+Exec=screencatch
+
+[Desktop Action capture-full]
+Name=Capture Whole Screen
+Exec=screencatch --full
+
+[Desktop Action capture-delayed]
+Name=Capture Region in 3 Seconds
+Exec=screencatch --delay 3

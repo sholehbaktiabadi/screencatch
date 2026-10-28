@@ -1,0 +1,2 @@
+# The Python package lives in the application's private data directory on purpose.
+repeated-path-segment screencatch [usr/share/screencatch/screencatch/]

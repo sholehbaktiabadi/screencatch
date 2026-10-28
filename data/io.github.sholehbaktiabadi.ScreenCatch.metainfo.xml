@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.sholehbaktiabadi.ScreenCatch</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>ScreenCatch</name>
+  <summary>Take a screenshot and annotate it instantly</summary>
+  <description>
+    <p>
+      ScreenCatch combines taking a screenshot and marking it up into one quick step.
+      Press the shortcut, drag over the part of the screen you need, then add arrows,
+      boxes, circles and text before copying or saving the result.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Region selection over a frozen screen, with resize handles and pixel size readout</li>
+      <li>Arrow, rectangle, ellipse, line, pen, highlighter, text and numbered step tools</li>
+      <li>Pixelate tool to hide sensitive information</li>
+      <li>Crop, undo and redo, move or recolor any annotation</li>
+      <li>Copy to the clipboard or save as PNG with one key</li>
+      <li>Global keyboard shortcut set up automatically on GNOME</li>
+      <li>Works on Wayland and X11 through the desktop screenshot portal</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">io.github.sholehbaktiabadi.ScreenCatch.desktop</launchable>
+  <provides>
+    <binary>screencatch</binary>
+  </provides>
+  <developer id="io.github.sholehbaktiabadi">
+    <name>Sholeh Bakti Abadi</name>
+  </developer>
+  <url type="homepage">https://github.com/sholehbaktiabadi/screencatch</url>
+  <url type="bugtracker">https://github.com/sholehbaktiabadi/screencatch/issues</url>
+  <url type="vcs-browser">https://github.com/sholehbaktiabadi/screencatch</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/sholehbaktiabadi/screencatch/main/docs/screenshot-editor.png</image>
+      <caption>Annotating a screenshot in the editor</caption>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  <branding>
+    <color type="primary" scheme_preference="light">#99c1f1</color>
+    <color type="primary" scheme_preference="dark">#1c3f7c</color>
+  </branding>
+  <releases>
+    <release version="1.0.0" date="2026-10-28">
+      <description>
+        <p>First release.</p>
+      </description>
+    </release>
+  </releases>
+</component>

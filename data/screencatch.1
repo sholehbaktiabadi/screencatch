@@ -1,0 +1,64 @@
+.TH SCREENCATCH 1 "October 2026" "ScreenCatch 1.0.0" "User Commands"
+.SH NAME
+screencatch \- take a screenshot and annotate it instantly
+.SH SYNOPSIS
+.B screencatch
+[\fIOPTION\fR...] [\fIIMAGE\fR...]
+.SH DESCRIPTION
+.B screencatch
+captures the screen through the XDG desktop screenshot portal, lets you select a
+region over the frozen screen and opens an editor to add arrows, rectangles,
+ellipses, lines, freehand pen and highlighter strokes, text, numbered steps and
+pixelation. The result can be copied to the clipboard or saved as a PNG file.
+.PP
+Run without options, it starts a region capture immediately; bind it to a key
+for the quickest workflow. On GNOME the shortcut Ctrl+Shift+Print is registered
+automatically on first start and can be changed in Preferences.
+.PP
+When images are given, they are opened in the editor instead.
+.SH OPTIONS
+.TP
+.BR \-f ", " \-\-full
+Capture the whole screen and open it in the editor.
+.TP
+.BR \-d ", " \-\-delay =\fISECONDS\fR
+Wait \fISECONDS\fR before capturing.
+.TP
+.B \-\-home
+Show the main window instead of capturing.
+.TP
+.B \-\-preferences
+Open the preferences.
+.TP
+.B \-\-debug
+Print debug messages.
+.TP
+.BR \-v ", " \-\-version
+Show the version and exit.
+.TP
+.BR \-h ", " \-\-help
+Show help options.
+.SH SELECTION KEYS
+.TP
+.B Enter
+Run the quick action (open the editor by default).
+.TP
+.B Ctrl+C
+Copy the selected region to the clipboard.
+.TP
+.B Ctrl+S
+Save the selected region to the screenshot folder.
+.TP
+.B Space
+Select the whole monitor.
+.TP
+.B Esc
+Cancel.
+.SH FILES
+Screenshots are saved to
+.I ~/Pictures/Screenshots
+unless another folder is configured.
+.SH BUGS
+Report bugs at https://github.com/sholehbaktiabadi/screencatch/issues
+.SH AUTHOR
+Sholeh Bakti Abadi.

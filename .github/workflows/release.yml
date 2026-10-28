@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tag matches version
+        run: |
+          version=$(sed -n "s/^  version: '\(.*\)',/\1/p" meson.build)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match meson version $version" >&2
+            exit 1
+          fi
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential debhelper devscripts lintian meson \
+            python3 python3-gi python3-gi-cairo python3-cairo \
+            gir1.2-gtk-4.0 gir1.2-adw-1 gir1.2-pango-1.0 \
+            desktop-file-utils appstream libglib2.0-bin
+
+      - name: Test
+        run: make test
+
+      - name: Build .deb
+        run: |
+          make deb
+          lintian --fail-on error,warning dist/*.deb
+          cd dist && sha256sum *.deb > SHA256SUMS
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          awk -v v="${GITHUB_REF_NAME#v}" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md > notes.md
+          gh release create "$GITHUB_REF_NAME" dist/*.deb dist/SHA256SUMS \
+            --title "ScreenCatch ${GITHUB_REF_NAME#v}" \
+            --notes-file notes.md

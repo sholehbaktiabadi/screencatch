@@ -1,0 +1,45 @@
+Source: screencatch
+Section: graphics
+Priority: optional
+Maintainer: Sholeh Bakti Abadi <sholehbaktiabadi@gmail.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ meson (>= 0.62),
+ python3,
+ python3-gi,
+ python3-gi-cairo,
+ python3-cairo,
+ gir1.2-gtk-4.0,
+ gir1.2-pango-1.0,
+ desktop-file-utils,
+ appstream,
+ libglib2.0-bin,
+Standards-Version: 4.7.3
+Homepage: https://github.com/sholehbaktiabadi/screencatch
+Vcs-Browser: https://github.com/sholehbaktiabadi/screencatch
+Vcs-Git: https://github.com/sholehbaktiabadi/screencatch.git
+Rules-Requires-Root: no
+
+Package: screencatch
+Architecture: all
+Depends:
+ ${misc:Depends},
+ python3 (>= 3.10),
+ python3-gi (>= 3.42),
+ python3-gi-cairo,
+ python3-cairo,
+ gir1.2-gtk-4.0 (>= 4.12),
+ gir1.2-adw-1 (>= 1.5),
+ gir1.2-pango-1.0,
+ xdg-desktop-portal,
+ xdg-desktop-portal-gnome | xdg-desktop-portal-backend,
+Recommends:
+ gnome-settings-daemon,
+Description: screenshot tool with instant annotation
+ ScreenCatch captures a region of the screen and opens it straight in an
+ editor, so you can mark it up with arrows, rectangles, ellipses, lines,
+ freehand pen and highlighter strokes, text and numbered steps, or pixelate
+ sensitive details, before copying it to the clipboard or saving it as PNG.
+ .
+ It works on Wayland and X11 through the XDG desktop screenshot portal and
+ registers a global keyboard shortcut (Ctrl+Shift+Print) on GNOME.
